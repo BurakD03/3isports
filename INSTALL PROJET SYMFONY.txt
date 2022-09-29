@@ -1,0 +1,43 @@
+----------------------------------
+INSTALLATIONS DES OUTILS
+----------------------------------
+
+
+-----------------------------
+Etape 1: Install wampserver
+-----------------------------
+
+-Installer la nouvelle version de wampserver. Si jamais vous avez déjà wampserver d'installer aller et renomver le ficher "wamp64" par "__wamp64" puis 
+installer le en se rendant sur le lien ci-dessous :
+
+https://sourceforge.net/projects/wampserver/files/latest/download
+
+
+-----------------------------
+Etape 2: Install Symfony CLI
+-----------------------------
+- Ouvrir Windows Powershell et installer la commande "scoop"
+
+iwr -useb get.scoop.sh | iex
+
+- Puis installer Symfony cli
+
+scoop install symfony-cli
+
+
+https://symfony.com/download
+
+
+
+
+-----------------------------
+Etape 3 : Install COMPOSER
+-----------------------------
+
+https://getcomposer.org/doc/00-intro.md
+
+- Suffit de copier le lien ci-dessous pour l'installer
+https://getcomposer.org/Composer-Setup.exe
+
+- Puis ajouter dans le PATH des variables d'environnement le chemin suivant :
+C:\ProgramData\ComposerSetup\bin 
