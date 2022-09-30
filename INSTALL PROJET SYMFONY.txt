@@ -18,10 +18,11 @@ Etape 2: Install Symfony CLI
 -----------------------------
 - Ouvrir Windows Powershell et installer la commande "scoop"
 
-iwr -useb get.scoop.sh | iex
+iex (new-object net.webclient).downloadstring( 'https://raw.github.com/rivy/scoop/master/bin/install.ps1' )
 
 - Puis installer Symfony cli
 
+scoop bucket add main
 scoop install symfony-cli
 
 
