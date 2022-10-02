@@ -22,7 +22,6 @@ iex (new-object net.webclient).downloadstring( 'https://raw.github.com/rivy/scoo
 
 - Puis installer Symfony cli
 
-scoop bucket add main
 git clone --recursive https://github.com/rivy/scoop.bucket-scoop.main.git REPO_DIR
 cd REPO_DIR
 scoop install symfony-cli
