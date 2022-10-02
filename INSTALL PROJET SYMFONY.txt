@@ -56,3 +56,15 @@ cd C:\wamp64\www\
 git clone https://github.com/BurakD03/3isports.git
 cd 3isports
 composer install
+
+
+-----------------------------------------------
+Etape 5 : Lancer le projet en local
+-----------------------------------------------
+
+- Ouvrir invite de commande puis taper :
+
+cd C:\wamp64\www\3isports
+php -S 127.0.0.1:8000 -t public
+
+puis se rendre sur un navigateur et aller sur "127.0.0.1:8000"
