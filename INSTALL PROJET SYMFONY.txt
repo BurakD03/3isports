@@ -54,3 +54,5 @@ Etape 4 : Installer le projet 3isports sur wamp
 
 cd C:\wamp64\www\
 git clone https://github.com/BurakD03/3isports.git
+cd 3isports
+composer install
