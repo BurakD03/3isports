@@ -52,4 +52,5 @@ Etape 4 : Installer le projet 3isports sur wamp
 
 - Ouvrir invite de commande puis taper :
 
+cd C:\wamp64\www\
 git clone https://github.com/BurakD03/3isports.git
