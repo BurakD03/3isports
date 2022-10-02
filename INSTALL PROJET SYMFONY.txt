@@ -23,6 +23,8 @@ iex (new-object net.webclient).downloadstring( 'https://raw.github.com/rivy/scoo
 - Puis installer Symfony cli
 
 scoop bucket add main
+git clone --recursive https://github.com/rivy/scoop.bucket-scoop.main.git REPO_DIR
+cd REPO_DIR
 scoop install symfony-cli
 
 
@@ -42,3 +44,13 @@ https://getcomposer.org/Composer-Setup.exe
 
 - Puis ajouter dans le PATH des variables d'environnement le chemin suivant :
 C:\ProgramData\ComposerSetup\bin 
+
+
+
+-----------------------------------------------
+Etape 4 : Installer le projet 3isports sur wamp
+-----------------------------------------------
+
+- Ouvrir invite de commande puis taper :
+
+git clone https://github.com/BurakD03/3isports.git
