@@ -59,8 +59,8 @@ puis Ouvrir invite de commande puis taper :
 cd C:\wamp64\www\
 git clone https://github.com/BurakD03/3isports.git
 cd 3isports
+git checkout dev
 composer install
-
 
 -----------------------------------------------
 Etape 5 : Lancer le projet en local
