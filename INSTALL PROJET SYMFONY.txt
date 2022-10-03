@@ -50,7 +50,11 @@ C:\ProgramData\ComposerSetup\bin
 Etape 4 : Installer le projet 3isports sur wamp
 -----------------------------------------------
 Sur wamp bien choisir la version de "php 8.1.0"
-- Ouvrir invite de commande puis taper :
+- Installer d'abord GitHub :
+
+https://github.com/git-for-windows/git/releases/download/v2.37.3.windows.1/Git-2.37.3-64-bit.exe
+
+puis Ouvrir invite de commande puis taper :
 
 cd C:\wamp64\www\
 git clone https://github.com/BurakD03/3isports.git
