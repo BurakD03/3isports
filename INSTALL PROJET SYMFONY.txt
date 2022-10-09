@@ -72,32 +72,3 @@ cd C:\wamp64\www\3isports
 php -S 127.0.0.1:8000 -t public
 
 puis se rendre sur un navigateur et aller sur "127.0.0.1:8000"
-
-
------------------------------
-Etape 6: Install Webpack Encore
------------------------------
-- Dans l'invite de commande :
-
-cd C:\wamp64\www\3isports
-composer require symfony/webpack-encore-bundle
-
-
------------------------------
-Etape 7: Install Node et Yarn
------------------------------
-- Aller sur le lien pour téléchager Node :
-
-https://nodejs.org/dist/v16.17.1/node-v16.17.1-x64.msi
-
-- Dans l'invite de commande :
-
-cd C:\wamp64\www\3isports
-npm install --global yarn
-yarn install
-
------------------------------
-Etape 8: Lancer Webpack Encore
------------------------------
-
-yarn encore dev --watch 
