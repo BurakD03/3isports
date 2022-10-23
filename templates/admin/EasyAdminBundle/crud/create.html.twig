@@ -1,0 +1,48 @@
+{# DO THIS: the '!' symbol tells Symfony to extend from the original template #}
+{% extends '@!EasyAdmin/crud/new.html.twig' %}
+
+{% block sidebar %}
+    {{parent()}}
+{% endblock %}
+
+{% block main %}
+{{ form_start(new_form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(new_form) }}
+    </div>
+
+    {{ form_row(new_form.titre) }}
+    {{ form_row(new_form.description) }}
+    {{ form_row(new_form.sousCategorie) }}
+    {{ form_row(new_form.auteur) }}
+    {{ form_row(new_form.image) }}
+    {{ form_row(new_form.alt) }}
+    {{ form_row(new_form.url) }}
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Créer une miniature différente ?</label>
+    </div>
+    <div class="miniature">
+        {{ form_row(new_form.thumbnail) }}
+    </div>
+    {{ form_row(new_form._token) }}
+{{ form_end(new_form, {render_rest: false}) }}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $(".miniature").hide(300);
+    $("#flexSwitchCheckDefault").click(function() {
+        if($(this).is(":checked")) {
+            $(".miniature").show(300);
+        } else {
+            $(".miniature").hide(200);
+        }
+    });
+
+});
+</script>
+{% endblock %}

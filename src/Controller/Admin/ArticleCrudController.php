@@ -4,8 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Form\Admin\ThumbnailType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -21,9 +23,9 @@ class ArticleCrudController extends AbstractCrudController
     {
         $article = new Article();
 
-
         return $article;
     }
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -40,4 +42,17 @@ class ArticleCrudController extends AbstractCrudController
 
         ];
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->overrideTemplate('crud/new', 'admin/EasyAdminBundle/crud/create.html.twig')
+
+            //->overrideTemplates([
+            //    'crud/field/text' => 'admin/product/field_id.html.twig',
+            //    'label/null' => 'admin/labels/null_product.html.twig',
+            //])
+        ;
+    }
+
 }
