@@ -23,8 +23,8 @@ class ThumbnailCrudController extends AbstractCrudController
             TextField::new('titre'),
             TextEditorField::new('descriptionThumb'),
             ImageField::new('image')
-            ->setBasePath('uploads/images/thumbnail/')
-            ->setUploadDir('public/uploads/images/thumbnail'),
+            ->setBasePath('uploads/images/articles/')
+            ->setUploadDir('public/uploads/images/articles'),
         ];
     }
 }

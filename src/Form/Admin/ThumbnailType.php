@@ -14,7 +14,7 @@ class ThumbnailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre',null, [
+            ->add('titre', null, [
                 'required'   => false,
             ])
             ->add('descriptionThumb')
@@ -29,7 +29,7 @@ class ThumbnailType extends AbstractType
                 // in the associated entity, so you can use the PHP constraint classes
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024m',
+                        'maxSize' => '5024m',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/jpg',

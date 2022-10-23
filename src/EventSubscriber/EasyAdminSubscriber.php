@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 
-class EasyAdminSubscriber extends AbstractController implements EventSubscriberInterface 
+class EasyAdminSubscriber extends AbstractController implements EventSubscriberInterface
 {
     private $slugger;
     protected $request;
@@ -41,24 +41,23 @@ class EasyAdminSubscriber extends AbstractController implements EventSubscriberI
         $titreThumb = $entity->getThumbnail()->getTitre();
         $descriptionThumb = $entity->getThumbnail()->getDescriptionThumb();
         $imageThumb = $entity->getThumbnail()->getImage();
-    
+        // dd($event);
+
         if (!($entity instanceof Article)) {
             return;
         }
-        
-        if (empty($titreThumb) || empty($imageThumb)){
-            $entity->setThumbnail($entity->getThumbnail()->setTitre($titre));
-            $entity->setThumbnail($entity->getThumbnail()->setDescriptionThumb(substr(strip_tags($description),0,250)));
-            $entity->setThumbnail($entity->getThumbnail()->setImage($image));
 
-        }else{
-            //dd($this->request->request->all());
+        if (empty($titreThumb) || empty($imageThumb)) {
+            $entity->setThumbnail($entity->getThumbnail()->setTitre($titre));
+            $entity->setThumbnail($entity->getThumbnail()->setDescriptionThumb(substr(strip_tags($description), 0, 250)));
+            $entity->setThumbnail($entity->getThumbnail()->setImage($image));
+        }/*else{
             $thumbnail = new Thumbnail;
             $data = $this->request->request->all();
             $form = $this->createForm(ThumbnailType::class, $thumbnail);
             $form->handleRequest($this->request);
             dd($form->handleRequest($this->request));
-            
+
             if ($image) {
                 $filename = pathinfo($image);
                 $originalFilename = $filename['filename'];
@@ -80,8 +79,7 @@ class EasyAdminSubscriber extends AbstractController implements EventSubscriberI
                 // instead of its contents
                 $entity->setThumbnail($entity->getThumbnail()->setImage($newFilename));
             }
-            
-        }
-        
+
+        }*/
     }
 }

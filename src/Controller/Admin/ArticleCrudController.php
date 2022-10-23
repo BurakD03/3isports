@@ -5,12 +5,14 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Form\Admin\ThumbnailType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use App\Controller\Admin\ThumbnailCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -38,6 +40,7 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('auteur')->autocomplete(),
             TextField::new('alt'),
             TextEditorField::new('url'),
+            //AssociationField::new('thumbnail')->autocomplete()->setCrudController(ThumbnailCrudController::class)
             TextField::new('thumbnail')->setFormType(ThumbnailType::class)->setFormTypeOption('label', 'Créer un thumbnail différent ?')->onlyWhenCreating(),
 
         ];
@@ -47,12 +50,6 @@ class ArticleCrudController extends AbstractCrudController
     {
         return $crud
             ->overrideTemplate('crud/new', 'admin/EasyAdminBundle/crud/create.html.twig')
-
-            //->overrideTemplates([
-            //    'crud/field/text' => 'admin/product/field_id.html.twig',
-            //    'label/null' => 'admin/labels/null_product.html.twig',
-            //])
         ;
     }
-
 }
