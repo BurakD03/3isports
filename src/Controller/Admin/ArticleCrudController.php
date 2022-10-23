@@ -40,7 +40,6 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('auteur')->autocomplete(),
             TextField::new('alt'),
             TextEditorField::new('url'),
-            //AssociationField::new('thumbnail')->autocomplete()->setCrudController(ThumbnailCrudController::class)
             TextField::new('thumbnail')->setFormType(ThumbnailType::class)->setFormTypeOption('label', 'Créer un thumbnail différent ?')->onlyWhenCreating(),
 
         ];
