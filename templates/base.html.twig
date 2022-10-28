@@ -19,10 +19,10 @@
         {% endblock %}
     </head>
     <body>
-	<section class="ftco-section">
+	{# <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-6 text-center my-5">
+				<div class="col-md-6 text-center my-2">
 					<h2 class="heading-section">3iSports</h2>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 		</div>
 		<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light p-0" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">3iSports <span>Magazine</span></a>
+			<a class="navbar-brand" href="/"><img class="img-fluid" src="{{asset('accueil/img/logo1.png')}}"></a>
 	    	<form action="#" class="searchform order-sm-start order-lg-last">
           <div class="form-group d-flex">
             <input type="text" class="form-control pl-3" placeholder="Search">
@@ -60,7 +60,7 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li class="nav-item active"><a href="#" class="nav-link">Accueil</a></li>
+	        	<li class="nav-item active"><a href="/" class="nav-link">Accueil</a></li>
 	        	<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#football" id="Football" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Football</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown04">
@@ -81,11 +81,236 @@
 	      </div>
 	    </div>
 	  </nav>
+    <!-- END nav --> #}
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center my-2">
+					<h2 class="heading-section">3iSports</h2>
+				</div>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col">
+							<p class="mb-0 phone"><span class="fa fa-phone"></span> <a href="#">+00 1234 567</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light p-0" id="ftco-navbar">
+	    <div class="container">
+			<a class="navbar-brand" href="/"><img class="img-fluid" src="{{asset('accueil/img/logo1.png')}}"></a>
+	    	<form action="#" class="searchform order-sm-start order-lg-last">
+          <div class="form-group d-flex">
+            <input type="text" class="form-control pl-3" placeholder="Search">
+            <button type="submit" id="newsQuery" placeholder="Search" class="form-control search"><span class="fa fa-search"></span></button>
+          </div>
+        </form>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	        	<li class="nav-item active"><a href="/" class="nav-link">Accueil</a></li>
+	        	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/categorie/1" id="Football" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Football</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a class="dropdown-item" href="/categorie/1" id="Ligue 1">Ligue 1</a>
+						<a class="dropdown-item" href="/categorie/1" id="LigueChamp">Ligue 2</a>
+						<a class="dropdown-item" href="/categorie/1" id="Coupe">Coupe du Monde 2022</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/categorie/4" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tech</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a class="dropdown-item" href="/categorie/4">Internet</a>
+						<a class="dropdown-item" href="/categorie/4">Cryptomonnaie</a>
+						<a class="dropdown-item" href="/categorie/4">Logiciels</a>
+						<a class="dropdown-item" href="/categorie/4">Sécurité </a>
+						<a class="dropdown-item" href="/categorie/4">Roland-Garros</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/categorie/3" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuisines</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a class="dropdown-item" href="/categorie/3">Plats</a>
+						<a class="dropdown-item" href="/categorie/3">Entrée</a>
+						<a class="dropdown-item" href="/categorie/3">Fast-Food</a>
+						<a class="dropdown-item" href="/categorie/3">Pâtisserie </a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/categorie/7" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LifeStyle</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a class="dropdown-item" href="/categorie/7">Style</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="/categorie/6" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jeux vidéo</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+						<a class="dropdown-item" href="/categorie/6">PS5</a>
+						<a class="dropdown-item" href="/categorie/6">PC</a>
+						<a class="dropdown-item" href="/categorie/6">Xbox</a>
+						<a class="dropdown-item" href="/categorie/6">Actus</a>
+					</div>
+				</li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
     <!-- END nav -->
+
+
+
+
+
+
 
 	</section>
         {% block body %}
         
         {% endblock %}
     </body>
+	<footer>
+		<div class="footer-top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div id="rt-about-social-4" class="title-style-2 widget rt_footer_social_widget">
+							<h3 style="background-color: #111" class="widgettitle">À propos de nous</h3>
+							<div class="rt-about-widget"><div class="footer-about">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet quam nec ex tempor tincidunt. Fusce sed lacus molestie, scelerisque lorem non , tincidunt arcu.							
+							</div>
+							<div>
+								<ul class="footer-social">
+									<li>
+										<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+									</li>
+									<li>
+										<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+									</li>
+									<li>
+										<a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+									</li>
+									<li>
+										<a href="#" target="_blank"><i class="fa fa-pinterest"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div id="rt-news-box-5" class="title-style-2 widget rt-news-box">
+						<h3 style="background-color: #000000" class="widgettitle">Articles récents</h3><div class=" dark">
+						<div class="rt-news-box-widget box-style-1">
+							<div class="media">
+								<div class="media-body">
+									<div class="post-date-dark">
+										<ul>
+											<li>
+												<span><i class="fa fa-clock-o" aria-hidden="true"></i></span>September 20, 2022
+											</li>
+										</ul>
+									</div>
+									<h3 class="title-medium-dark mb-none"> 
+										<a href="#">Ducati ‘has all the cards’ to win 2017 MotoGP title, says CEO </a>
+									</h3>
+								</div>
+							</div>
+						</div>
+						<div class="rt-news-box-widget box-style-1">
+						<div class="media">
+							<div class="media-body">
+								<div class="post-date-dark">
+									<ul>
+									<li> <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>September 20, 2022</li>
+									</ul>
+								</div>
+								<h3 class="title-medium-dark mb-none"> <a href="#">The company behind Vespa built a cargo robot that follows you around </a></h3>
+							</div>
+						</div>
+						</div>
+						<div class="rt-news-box-widget box-style-1">
+						<div class="media">
+							<div class="media-body">
+								<div class="post-date-dark">
+									<ul>
+									<li> <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>September 24, 2022</li>
+									</ul>
+								</div>
+								<h3 class="title-medium-dark mb-none"> <a href="#">Crafty Cook and Decorate all of our food dishes with love </a></h3>
+							</div>
+						</div>
+						</div>
+						</div></div></div>
+						<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div id="categories-7" class="title-style-2 widget widget_categories">
+							<h3 style="background-color: #111" class="widgettitle">Catégories populaires</h3>
+							<ul>
+								<li class="cat-item cat-item-213"><a href="#">Action</a></li>
+								<li class="cat-item cat-item-215"><a href="#">Adventure</a></li>
+								<li class="cat-item cat-item-217"><a href="#">Animation</a></li>
+								<li class="cat-item cat-item-208"><a href="#">Apple</a></li>
+								<li class="cat-item cat-item-214"><a href="#">Boxing</a></li>
+								<li class="cat-item cat-item-209"><a href="#">Camera</a></li>
+								<li class="cat-item cat-item-210"><a href="#">Computers</a></li>
+								<li class="cat-item cat-item-211"><a href="#">Electronics</a></li>
+								<li class="cat-item cat-item-271"><a href="#">Food</a></li>
+								<li class="cat-item cat-item-197"><a href="#">Games</a></li>
+								<li class="cat-item cat-item-198"><a href="#">Health</a></li>
+								<li class="cat-item cat-item-199"><a href="#">Life style</a></li>
+								<li class="cat-item cat-item-194"><a href="#">Politics</a></li>
+								<li class="cat-item cat-item-212"><a href="#">Racing</a></li>
+								<li class="cat-item cat-item-216"><a href="#">Security</a></li>
+								<li class="cat-item cat-item-190"><a href="#">Sports</a></li>
+								<li class="cat-item cat-item-202"><a href="#">Video</a></li>
+							</ul>
+						</div>
+						</div>
+						<div class="col-lg-3 col-sm-6 col-xs-12">
+						<div id="tag_cloud-3" class="title-style-2 widget widget_tag_cloud">
+							<h3 style="background-color: #000000" class="widgettitle">Tags</h3>
+							<div class="tagcloud"><a href="#" class="tag-cloud-link tag-link-221 tag-link-position-1" style="font-size: 16.4pt;" aria-label="Action (2 items)">Action</a> <a href="#" class="tag-cloud-link tag-link-220 tag-link-position-2" style="font-size: 8pt;" aria-label="Animation (1 item)">Animation</a> <a href="#" class="tag-cloud-link tag-link-223 tag-link-position-3" style="font-size: 8pt;" aria-label="Apple (1 item)">Apple</a> <a href="#" class="tag-cloud-link tag-link-203 tag-link-position-4" style="font-size: 22pt;" aria-label="Boxing (3 items)">Boxing</a> <a href="#" class="tag-cloud-link tag-link-224 tag-link-position-5" style="font-size: 8pt;" aria-label="Computer (1 item)">Computer</a> <a href="#" class="tag-cloud-link tag-link-205 tag-link-position-6" style="font-size: 8pt;" aria-label="Cricket (1 item)">Cricket</a> <a href="#" class="tag-cloud-link tag-link-226 tag-link-position-7" style="font-size: 8pt;" aria-label="Food (1 item)">Food</a> <a href="#" class="tag-cloud-link tag-link-218 tag-link-position-8" style="font-size: 16.4pt;" aria-label="Games (2 items)">Games</a> <a href="#" class="tag-cloud-link tag-link-225 tag-link-position-9" style="font-size: 8pt;" aria-label="Health (1 item)">Health</a> <a href="#" class="tag-cloud-link tag-link-222 tag-link-position-10" style="font-size: 8pt;" aria-label="Racing (1 item)">Racing</a> <a href="#" class="tag-cloud-link tag-link-219 tag-link-position-11" style="font-size: 16.4pt;" aria-label="Sports (2 items)">Sports</a></div>
+						</div>
+						</div>
+						</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="footer-logo"><a class="dark-logo" href="/"><img width="380" height="180" src="{{asset('accueil/img/logo1.png')}}" sizes="(max-width: 380px) 100vw, 380px"></a></div>
+					<div class="footer-bottom-social">
+						<ul class="tophead-social">
+						<li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
+						<li><a target="_blank" href="#"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-sm-12 col-xs-12">©Copyright 2022. Dévéloppé par BD</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </html>

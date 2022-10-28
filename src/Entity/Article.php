@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping\PreUpdate;
 use Doctrine\ORM\Mapping\PrePersist;
 use Doctrine\DBAL\Types\Types;
@@ -47,8 +49,14 @@ class Article
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $alt = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $url = null;
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Accueil::class)]
+    private Collection $accueils;
+
+
+    public function __construct()
+    {
+        $this->accueils = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -163,18 +171,6 @@ class Article
         return $this;
     }
 
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(?string $url): self
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
     #[ORM\PrePersist]
     #[ORM\PreUpdate]
     public function createTimestamps()
@@ -183,5 +179,41 @@ class Article
             $this->setCreatedAt(new \DateTime());
         }
         $this->setUpdatedAt(new \DateTime());
+    }
+
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * @return Collection<int, Accueil>
+     */
+    public function getAccueils(): Collection
+    {
+        return $this->accueils;
+    }
+
+    public function addAccueil(Accueil $accueil): self
+    {
+        if (!$this->accueils->contains($accueil)) {
+            $this->accueils->add($accueil);
+            $accueil->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAccueil(Accueil $accueil): self
+    {
+        if ($this->accueils->removeElement($accueil)) {
+            // set the owning side to null (unless already changed)
+            if ($accueil->getArticle() === $this) {
+                $accueil->setArticle(null);
+            }
+        }
+
+        return $this;
     }
 }

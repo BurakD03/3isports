@@ -1,0 +1,215 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name }}!{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+
+{% endblock %}
+
+{% block body %}
+    <div class="entry-banner" style="background:url(https://www.radiustheme.com/demo/wordpress/themes/barta/wp-content/themes/barta/assets/img/banner.jpg) no-repeat scroll center center / cover">
+        <div class="container">
+            <div class="entry-banner-content">
+                <h1 class="entry-title">{{ article.titre }}</h1>
+                <div class="breadcrumb-area">
+                    <div class="entry-breadcrumb">
+                        <span property="itemListElement" class=" 1 breadcrumb-first" typeof="ListItem">
+                            <a href="/">
+                                <span class="fa fa-home" aria-hidden="true"></span> Accueil
+                            </a>
+                        </span>
+                        <em class="delimiter"> - </em>
+                        <span property="itemListElement" class=" 2 breadcrumb-first" typeof="ListItem">
+                            <a href="/categorie/{{ article.sousCategorie.categorie.id}}"> 
+                                {{article.sousCategorie.categorie.libelleCategorie}}
+                            </a>
+                        </span>
+                        <em class="delimiter"> - </em>
+                        <span>
+                        <span class="current">{{ article.titre }}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="primary" class="content-area">
+            <div class="row">
+                <div class=" col-12 col-lg-9 col-md-12">
+                    <div class="entry-header">
+                        <div class="entry-thumbnail-area overimage"> 
+                            <img class="img-fluid" src="{{ asset('uploads/images/articles/' ~ article.image)}}" alt="Ducati ‘has all the cards’ to win 2017 MotoGP title, says CEO">
+                            </div>
+                            <div class="entry-meta">
+                                <div class="entry-category">
+                                    <div class="entry-cat-tag">
+                                        <div class="ui-cat">
+                                            <div class="ui-cat-tag" style="background:#0089ff"> 
+                                                <span class="amount">
+                                                    <a href="#">{{article.sousCategorie.categorie.libelleCategorie}}
+                                                    </a>
+                                                </span> 
+                                                <span class="r1"></span> 
+                                                <span class="r2"></span> 
+                                                <span class="r3"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="entry-date">
+                                    <ul>
+                                        <li><span class="fa fa-clock-o" aria-hidden="true"></span> <span class="published updated">{{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}</span></li>
+                                    </ul>
+                                </div>
+                                <div class="entry-post-meta row">
+                                    <div class="col-sm-8 col-xs-12  pull-left text-left  post-author"> 
+                                        <img alt="admin" src="https://secure.gravatar.com/avatar/20947e665211ab91db569a6f7fbe44ac?s=35&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/20947e665211ab91db569a6f7fbe44ac?s=70&amp;d=mm&amp;r=g 2x" class="avatar avatar-35 photo" loading="lazy" width="35" height="35">
+                                        By 
+                                        <a href="/auteur/{{ article.auteur.id}}">
+                                            <span class="vcard author author_name"><span class="fn">{{article.auteur.nickname}}</span></span></a> - 
+                                            <a target="_blank" class="author-social" href="mailto:" title="admin"><i class="fa fa-envelope" aria-hidden="true"></i>
+                                            </a> 
+                                            <span><span class="date meta-item">
+                                            <span class="fa fa-clock-o" aria-hidden="true"></span> <span>{{article.createdAt|format_datetime(pattern=" d/M/Y", locale='fr')|capitalize}}</span></span></span>
+                                    </div>
+                                    <div class="col-sm-4 col-xs-12  pull-left text-right "> 
+                                        <span><i class="fa fa-comments-o" aria-hidden="true"></i> 0</span> <span class="meta-views meta-item "><span class="meta-views meta-item very-high"><i class="fa fa-fire" aria-hidden="true"></i> 8,959 </span> 
+                                        </span> <span class="meta-reading-time meta-item"> <span class="meta-reading-time meta-item"><i class="fa fa-eye" aria-hidden="true"></i> 2 minutes read</span> </span>
+                                    </div>
+                                </div>
+                                <div class="post-footer">
+                                    <div class="share-links "> 
+                                        <a href="http://www.facebook.com/sharer.php?u=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/" rel="external" target="_blank" class="facebook-share-button large-share-button">
+                                            <span class="fa fa-facebook"></span> 
+                                            <span class="social-text">Facebook</span>
+                                        </a>
+                                        <a href="https://twitter.com/intent/tweet?text=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO&amp;url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/" rel="external" target="_blank" class="twitter-share-button large-share-button">
+                                            <span class="fa fa-twitter"></span> 
+                                            <span class="social-text">Twitter</span>
+                                        </a>
+                                        <a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/&amp;name=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO" rel="external" target="_blank" class="google-share-button">
+                                            <span class="fa fa-google"></span> 
+                                            <span class="screen-reader-text">Google+</span>
+                                        </a>
+                                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;&amp;title=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO" rel="external" target="_blank" class="linkedin-share-button">
+                                            <span class="fa fa-linkedin"></span> 
+                                            <span class="screen-reader-text">LinkedIn</span>
+                                        </a>
+                                        <a href="whatsapp://send?text=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO " rel="external" target="_blank" class="whatsapp-share-button">
+                                            <span class="fa fa-whatsapp"></span> 
+                                            <span class="screen-reader-text">Whatsapp</span>
+                                        </a>
+                                        <a href="http://www.stumbleupon.com/submit?url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/&amp;title=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO" rel="external" target="_blank" class="stumbleupon-share-button">
+                                            <span class="fa fa-stumbleupon"></span> 
+                                            <span class="screen-reader-text">StumbleUpon</span>
+                                        </a>
+                                        <a href="http://www.tumblr.com/share/link?url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/&amp;name=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO" rel="external" target="_blank" class="tumblr-share-button">
+                                            <span class="fa fa-tumblr"></span>
+                                            <span class="screen-reader-text">Tumblr</span>
+                                        </a>
+                                        <a href="http://pinterest.com/pin/create/button/?url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/&amp;description=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO&amp;media=https://www.radiustheme.com/demo/wordpress/themes/barta/wp-content/uploads/2018/09/img_10-1200x600.jpg" rel="external" target="_blank" class="pinterest-share-button">
+                                            <span class="fa fa-pinterest">
+                                            </span> 
+                                            <span class="screen-reader-text">Pinterest</span></a><a href="http://reddit.com/submit?url=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/&amp;title=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO" rel="external" target="_blank" class="reddit-share-button">
+                                            <span class="fa fa-reddit"></span> <span class="screen-reader-text">Reddit</span>
+                                        </a>
+                                        <a href="mailto:?subject=Ducati+%E2%80%98has+all+the+cards%E2%80%99+to+win+2017+MotoGP+title%2C+says+CEO&amp;body=https://www.radiustheme.com/demo/wordpress/themes/barta/ducati-has-all-the-cards-to-win-2017-motogp-title-says-ceo-2/" rel="external" target="_blank" class="email-share-button"><span class="fa fa-envelope"></span> <span class="screen-reader-text">Share via Email</span></a><a href="#" rel="external" target="_blank" class="print-share-button">
+                                            <span class="fa fa-print"></span> 
+                                            <span class="screen-reader-text">Print</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                    <div class="entry-content">
+                        {{article.description|raw}}
+                        {# <p><img class="alignleft size-medium wp-image-1719" src="https://www.radiustheme.com/demo/wordpress/themes/barta/wp-content/uploads/2018/07/news178-300x293.jpg" alt="" width="300" height="293">Nmply dummy text of the printing and typesetting ustry. Lorem Ipsum has been the industry’s stydedy andard dummy text ever since the, when new wwan printer took a galley of type andsercrambled it toit make a type specimen book. It has survived anneyt only five centuries, but also theleap into electro nic typesetting, remaining.</p><p>It is a long established fact that a reader will be dist racted by the readable content of a page when looking at its layout.</p><p>Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s st andard dummy text ever since the 1500s, when an unknown printer took a galley of type andse aerr crambled it to make a type specimen book. It has survived not only five centuries, but also they area leap into electronic typesetting, remaining.&nbsp;Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s st andard dummy text ever since the 1500s, when an unknown printer took a galley of type andse aerr crambled it to make a type specimen book. It has survived not only five centuries, but also they area leap into electronic typesetting, remaining.</p><p>Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s st andard dummy text ever since the 1500s, when an unknown printer took a galley of type andse aerr crambled it to make a type specimen book. It has survived not only five centuries, but also they area leap into electronic typesetting, remaining.&nbsp;Nmply dummy text of the printing and typesetting industry.</p><p>Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s st andard dummy text ever since the 1500s, when an unknown printer took a galley of type andse aerr crambled it to make a type specimen book. It has survived not only five centuries, but also they area leap into electronic typesetting, remaining.</p><blockquote><p>Srem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. Lorem Ipsum is simply .</p></blockquote><p>Srem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. Lorem Ipsum is simply .&nbsp;Srem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s. Lorem Ipsum is simply .&nbsp;Srem Ipsum is simply dummy text of the printing and typesetting industry.</p> #}
+                    </div>
+
+                    <div class="media about-author">
+                        <div class="pull-left"> 
+                            <img alt="" src="https://secure.gravatar.com/avatar/20947e665211ab91db569a6f7fbe44ac?s=105&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/20947e665211ab91db569a6f7fbe44ac?s=210&amp;d=mm&amp;r=g 2x" class="avatar avatar-105 photo" height="105" width="105" loading="lazy">
+                        </div>
+                        <div class="media-body">
+                            <div class="about-author-info">
+                                <div class="author-title"><a href="/auteur/{{article.auteur.id}}" title="Posts by admin" rel="author">{{ article.auteur.nickname }}</a></div>
+                                <div class="author-designation">administrateur</div>
+                            </div>
+                            <div class="about-author-social">
+                                <ul class="author-box-social"></ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="related-post row">
+                    <div class="row owl-wrap rt-woo-nav rt-related-post related post ">
+                        <div class="title-section">
+                            <h2 class="owl-custom-nav-title">Articles associés</h2>
+                            <div class="owl-custom-nav-bar"></div>
+                            <div class="clear"></div>
+                        </div>
+                        {% for article in articleAssocier %}
+                        <div class="col-12 col-md-4">
+                            <div class=" active">
+                                <div class="position-relative">
+                                    <a href="/article/{{article.id}}"></a>
+                                    <div class="img-scale-animate">
+                                        <a href="/article/{{article.id}}"> 
+                                            <img src="{{ asset('uploads/images/articles/' ~ article.thumbnail.image)}}" width="375" height="300" style="object-fit:cover"> 
+                                        </a>
+                                        <a href="#">
+                                            <span class="el-rt-cat style_2" style="background:#111111">{{ article.sousCategorie.categorie.libelleCategorie}}
+                                                <span class="titleinner" style="border-top: 8px solid #111111;">
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="rt-related-post-info">
+                                        <h3 class="post-title"> <a href="/article/{{article.id}}">{{ article.thumbnail.titre}}</a></h3>
+                                        <div class="post-date">
+                                        <ul>
+                                            <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span> {{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+                        {% endfor %}
+                            <div></div>
+                            </div>
+                        </div>
+                </div>  
+                <div class="col-12 col-lg-3 col-md-12">
+                    <div id="mc4wp_form_widget-3" class="title-style-2 widget widget_mc4wp_form_widget">
+                                <div class="rt-news-box-title-holder style_2 mb-4">
+                                <h2 class="el-rt-news-box-title style_2">Newsletter<span class="titleinner"></span></h2>
+                                </div>
+                    <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-2228" method="post">
+                        <div class="mc4wp-form-fields">
+                            <div class="newsletter-area">
+                                <h2>Inscrivez-vous à notre liste de diffusion pour recevoir les nouvelles mises à jour !</h2>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <p>Inscrivez-vous à notre newsletter pour rester informé</p>
+                                <div class="input-group stylish-input-group"> <input type="email" name="EMAIL" placeholder="Votre adresse email" required=""> <span class="input-group-addon"> <button type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> </button> </span></div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>
+
+<script>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}

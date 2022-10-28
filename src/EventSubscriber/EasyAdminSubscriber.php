@@ -34,6 +34,9 @@ class EasyAdminSubscriber extends AbstractController implements EventSubscriberI
     public function setArticlePost(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
+        if (!($entity instanceof Article)) {
+            return;
+        }
         $titre = $entity->getTitre();
         $description = $entity->getDescription();
         $image = $entity->getImage();
@@ -43,9 +46,7 @@ class EasyAdminSubscriber extends AbstractController implements EventSubscriberI
         $imageThumb = $entity->getThumbnail()->getImage();
         // dd($event);
 
-        if (!($entity instanceof Article)) {
-            return;
-        }
+
 
         if (empty($titreThumb) || empty($imageThumb)) {
             $entity->setThumbnail($entity->getThumbnail()->setTitre($titre));

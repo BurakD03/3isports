@@ -1,0 +1,64 @@
+<div class="row" >
+{# {{dump(newsCategories.0.sousCategorie.categorie.libelleCategorie)}} #}
+{% for article in newsCategories %}
+    {% if loop.first %}
+    <div class="col-md-6 col-sm-12">
+        <div class="img-scale-animate">
+            <a class="img-overlay-70" href="/article/{{article.id}}">
+            <img width="700" height="1015" src="{{ asset('uploads/images/articles/' ~ article.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ article.alt}}" loading="lazy"> 
+            </a>
+            <div class="topic-box-top-lg">		
+            <a href="/article/{{article.id}}">
+                <span class="el-rt-cat style_2" style="background:#e53935">{{article.sousCategorie.categorie.libelleCategorie}}<span class="titleinner" style="border-top: 8px solid #e53935;"></span></span>
+            </a>
+            </div>
+            <div class="mask-content-lg">								
+            <div class="post-meta-light">
+                <ul>
+                <li><span><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <a href="/article/{{article.id}}" title="Posts by admin" rel="author">{{article.auteur.nickname}}</a>
+                </li>
+                {# <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{article.createdAt|date("F d, Y", "Europe/Paris")}} #}
+                <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                </li>
+                </ul>
+            </div>
+            <h2 class="title-medium-light">
+                <a href="/article/{{article.id}}">
+                {{ article.titre}}</a>
+            </h2>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if loop.first %}
+    <div class="col-md-6 col-sm-12">
+    {% endif %}
+        {% if not loop.first %}
+            <div class="media mb-30 general ">
+                <div class="image-left">
+                <a class="img-opacity-hover" href="/article/{{article.id}}"> 
+                    <img width="152" height="136" src="{{ asset('uploads/images/articles/' ~ article.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{article.alt}}" loading="lazy"> 
+                </a>
+                </div>
+                <div class="media-body">
+                <div class="post-meta-dark">
+                    <ul>
+                    <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                    </li>
+                    </ul>
+                </div>
+                <h3 class="title-medium-dark"> 
+                    <a href="/article/{{article.id}}">
+                    {{article.titre}}
+                    </a>
+                </h3>
+                </div>
+            </div>
+        {% endif %}
+    {% if loop.last %}
+    </div>
+    {% endif %}
+{% endfor %}
+</div>

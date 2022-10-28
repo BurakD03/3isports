@@ -39,6 +39,103 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByCategorie($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->andWhere('sousCategorie.categorie = :cat')
+            ->setParameter('cat', $value)
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findAllArticleCategorie($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->andWhere('sousCategorie.categorie = :cat')
+            ->setParameter('cat', $value)
+            ->orderBy('a.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findAllAuteurArticle($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.auteur', 'categorie')
+            ->andWhere('a.auteur = :auteur')
+            ->setParameter('auteur', $value)
+            ->orderBy('a.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function findByCategorie4($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->andWhere('sousCategorie.categorie = :cat')
+            ->setParameter('cat', $value)
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function last6Article(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function last6ArticleEachCategorie(): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->groupBy('sousCategorie.categorie')
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function articleAssocier($categorie): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->andWhere('sousCategorie.categorie = :cat')
+            ->setParameter('cat', $categorie)
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    public function articleLifestyle($categorie): array
+    {
+        return $this->createQueryBuilder('a')
+            ->join('a.sousCategorie', 'sousCategorie')
+            ->join('sousCategorie.categorie', 'categorie')
+            ->andWhere('sousCategorie.categorie = :cat')
+            ->setParameter('cat', $categorie)
+            ->orderBy('a.createdAt', 'DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Article[] Returns an array of Article objects
 //     */

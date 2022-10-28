@@ -39,7 +39,6 @@ class ArticleCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads/images/articles'),
             AssociationField::new('auteur')->autocomplete(),
             TextField::new('alt'),
-            TextEditorField::new('url'),
             TextField::new('thumbnail')->setFormType(ThumbnailType::class)->setFormTypeOption('label', 'Créer un thumbnail différent ?')->onlyWhenCreating(),
 
         ];

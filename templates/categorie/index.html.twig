@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name}}{% endblock %}
+
+{% block body %}
+    <div id="primary" class="content-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-12">
+                    {% for article in articleCategorie %}
+                    <div class="row entry-header blog-layout-1">
+                        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <div class="entry-thumbnail-area">
+                                <a href="/article/{{article.id}}" class="img-opacity-hover img-overlay-70">
+                                    <img
+                                        width="560"
+                                        height="404"
+                                        src="{{ asset('uploads/images/articles/' ~ article.thumbnail.image)}}"
+                                        class="img-responsive wp-post-image"
+                                        alt=""
+                                        loading="lazy"
+
+                                    />
+                                </a>
+                                <a href="/categorie/{{ article.sousCategorie.categorie.id}}">
+                                    <span class="el-rt-cat style_2" style="background: #0089ff;">{{article.sousCategorie.categorie.libelleCategorie}}<span class="titleinner" style="border-top: 8px solid #0089ff;"></span></span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-12">
+                            <div class="entry-meta">
+                                <ul>
+                                    <li>
+                                        <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                        <a href="/auteur/{{ article.auteur.id}}" title="Posts by admin" rel="author">{{article.auteur.nickname}}</a>
+                                    </li>
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}</li>
+                                </ul>
+                            </div>
+                            <div class="entry-content">
+                                <h3><a href="/article/{{ article.id }}">{{ article.thumbnail.titre }}</a></h3>
+                                <div class="blog-text">{{article.thumbnail.descriptionThumb ~ '...'}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="col-lg-3 col-md-12 col-12">
+                    <div id="mc4wp_form_widget-3" class="title-style-2 widget widget_mc4wp_form_widget">
+                        <div class="rt-news-box-title-holder style_2 mb-4">
+                            <h2 class="el-rt-news-box-title style_2">Newsletter<span class="titleinner"></span></h2>
+                        </div>
+                        <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-2228" method="post">
+                            <div class="mc4wp-form-fields">
+                                <div class="newsletter-area">
+                                    <h2>Inscrivez-vous à notre liste de diffusion pour recevoir les nouvelles mises à jour !</h2>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <p>Inscrivez-vous à notre newsletter pour rester informé</p>
+                                    <div class="input-group stylish-input-group"> <input type="email" name="EMAIL" placeholder="Votre adresse email" required=""> 
+                                        <span class="input-group-addon"> <button type="submit"> <i class="fa fa-paper-plane" aria-hidden="true"></i> </button> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

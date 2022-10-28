@@ -4,63 +4,707 @@
 
 {% block stylesheets %}
     {{parent()}}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
 {% endblock %}
 
 {% block body %}
-    <!-- Demo styles -->
-    <style>
-      {# html,
-      body {
-        position: relative;
-        height: 100%;
-      } #}
-
-      {# body {
-        background: red;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-      } #}
-
-    </style>
-  </head>
-
-  {# <div id="news" class="news"> #}
-    <!-- Swiper -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"> <a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"> <a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
-        <div class="swiper-slide"><a href=""><img src="https://via.placeholder.com/450"></div>
+<section class="news-grid-home">
+  <div class="container">
+    <div class="news-wrap">
+      <div class="news-container">
+        <div class="row tab-space1">
+          {% for grid in gridArticle %}
+          {% if (loop.index0  == 0) or (loop.index0  == 1) %}
+            {% if (loop.index0  == 0) %}
+              <div class="col-lg-5 col-md-5 col-12">
+            {% endif %}
+                <div class="item-wrap">
+                    <div class="img-scale-animate mb-2" id="grid-image-1"> 
+                      <a class="img-overlay-70" href="/article/{{grid.article.id}}"> 
+                        <img width="670" height="324" src="{{ asset('uploads/images/articles/' ~ grid.article.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{grid.article.alt}}" loading="lazy"> 
+                      </a>
+                      <div class="mask-content-lg">
+                        <div class="topic-box-bottom-lg">
+                          <a href="/categorie/{{grid.article.sousCategorie.categorie.id}}">
+                            <span class="el-rt-cat style_2"  {% if (loop.index0  == 0) %}style="background:#0089ff" {% else %}   style="background:#111111"{% endif %}>{{grid.article.sousCategorie.categorie.libelleCategorie}}<span class="titleinner" {% if (loop.index0  == 0) %} style="border-top: 8px solid #0089ff;" {% else %} style="border-top: 8px solid #111111;" {% endif %}></span></span>
+                          </a>
+                        </div>
+                        <h2 class="title-medium-light"> 
+                          <a href="/article/{{grid.article.id}}">
+                            {{grid.article.titre}}
+                          </a>
+                        </h2>
+                      </div>
+                    </div>
+                </div>
+            {% if (loop.index0  == 1) %}
+              </div>
+            {% endif %}
+          {% endif %}
+          
+          {% if loop.index0  == 2  %}
+          <div class="col-lg-4 col-md-4 col-12">
+            <div class="tab-space1">
+              <div class="item-wrap">
+                <div class="img-scale-animate mb-2" id="grid-image-2">
+                  <div class="mask-content-sm">
+                    <div class="topic-box-bottom-lg">
+                      <a href="/article/{{grid.article.id}}">
+                        <span class="el-rt-cat style_2" style="background:#e53935">{{grid.article.sousCategorie.categorie.libelleCategorie}}<span class="titleinner" style="border-top: 8px solid #e53935;"></span></span>
+                      </a>
+                    </div>
+                    <h2 class="title-medium-light">
+                      <a href="/article/{{grid.article.id}}">
+                        {{grid.article.titre}}
+                      </a>
+                    </h2>
+                  </div>
+                  <a class="img-overlay-70" href="/article/{{grid.article.id}}"> 
+                    <img width="700" height="850" src="{{ asset('uploads/images/articles/' ~ grid.article.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{grid.article.alt}}" loading="lazy"> 
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% if (loop.index0  == 3) or (loop.index0  == 4) %}
+            {% if (loop.index0  == 3) %}
+            <div class="col-lg-3 col-md-3 col-12">
+            {% endif %}
+              <div class="item-wrap">
+                <div class="img-scale-animate small-img mb-2" id="grid-image-3">
+                  <div class="mask-content-sm">
+                    <div class="topic-box-bottom-lg">
+                      <a href="/categorie/{{grid.article.sousCategorie.categorie.id}}">
+                        <span class="el-rt-cat style_2" {% if (loop.index0  == 3) %} style="background:#605ca8" {% else %}style="background:#e53935"{% endif %}>{{grid.article.sousCategorie.categorie.libelleCategorie}}<span class="titleinner" {% if (loop.index0  == 3) %}style="border-top: 8px solid #605ca8;"{% else %} style="border-top: 8px solid #e53935;" {% endif %}></span></span>
+                      </a>
+                    </div>
+                    <h3 class="title-medium-light"> 
+                      <a href="/article/{{grid.article.id}}">
+                        {{grid.article.titre}}
+                      </a>
+                    </h3>
+                  </div>
+                  <a class="img-overlay-70" href="/article/{{grid.article.id}}">
+                    <img width="400" height="323" src="{{ asset('uploads/images/articles/' ~ grid.article.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ grid.article.alt}}" loading="lazy"></a>
+                </div>
+              </div>
+            {% if (loop.index0  == 4) %}
+            </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
-  {# </div> #}
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    </div>
+  </div>
+</section>
+<section class="bg-blanc">
+  <div class="container">
+    <div class="news-wrap">
+      <div class="row">
+        <div class="col-12 col-md-8 news-second">
+          <div class="tab-default rt-news-tab-1 general">
+              <div class="topic-border">
+                <div class="mb-25p">
+                  <div class="rt-news-box-title-holder style_2">
+                    <h2 class="el-rt-news-box-title style_2">Top Stories<span class="titleinner"></span></h2>
+                  </div>
+                  <div class="news-tab-cat" id="news-home-radio">
+                    <ul>
+                      <form id="filters">
+                      {% for categorie in categories %}
+                        <li {% if loop.first %} class="active" {% endif %}>
+                          <input type="radio" id="cat-{{categorie.id}}" name="categ" value="{{categorie.id}}" {% if loop.first %} checked {% endif %} >                      
+                          <label for="cat-{{categorie.id}}">{{categorie.libelleCategorie}}</label>
+                        </li>
+                      {% endfor %}
+                      </form>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="rt-tab-news-holder" id="home-block-news">
+                  {% include "page_accueil/__blockNews.html.twig" %}
+            </div>
+          </div>
+          <div class="grid-default rt-news-grid-2" id="categorie-2">
+            <div class="rt-news-box-title-holder style_2 mt-5 mb-3">
+              <h2 class="el-rt-news-box-title style_2">Life Style<span class="titleinner"></span></h2>
+            </div>
+            <div class="row">
+            {% for lifestyle in articleLifestyle  %}
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="img-scale-animate mb-2">
+                <div class="mask-content-xs">
+                  <div class="post-meta-light d-none d-sm-block">
+                    <ul>
+                      <li>
+                        <span><i class="fa fa-user" aria-hidden="true">
+                        </i></span>
+                        <a href="/auteur/{{ lifestyle.auteur.id}}" title="Posts by admin" rel="author">{{ lifestyle.auteur.nickname}}</a>
+                      </li>
+                      <li>
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{lifestyle.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                      </li>
+                    </ul>
+                  </div>
+                  <h3 class="title-medium-light"> 
+                    <a href="/article/{{lifestyle.id}}">
+                      {{lifestyle.titre}}
+                    </a>
+                  </h3>
+                </div>
+                <a class="img-overlay-70" href="/article/{{lifestyle.id}}"> 
+                  <img src="{{ asset('uploads/images/articles/' ~ lifestyle.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="" loading="lazy" width="555" height="370"> 
+                </a><div class="topic-box-top-sm"></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="sec-title">
+            <div class="rt-news-box-title-holder style_2 ">
+              <h2 class="el-rt-news-box-title style_2">Rester connecté<span class="titleinner"></span></h2>
+            </div>
+          </div>
+          <div class="single-box my-3">
+            <div class="follow-us d-flex align-items-center">
+                <div class="follow-social">
+                    <a href="#"><img src="{{asset('accueil/img/icon-fb.png')}}" alt=""></a>
+                </div>
+                <div class="follow-count">  
+                    <span>8,045</span>
+                    <p>Fans</p>
+                </div>
+            </div> 
+            <div class="follow-us d-flex align-items-center">
+                <div class="follow-social">
+                    <a href="#"><img src="{{asset('accueil/img/icon-tw.png')}}" alt=""></a>
+                </div>
+                <div class="follow-count">
+                    <span>8,045</span>
+                    <p>Fans</p>
+                </div>
+            </div>
+                <div class="follow-us d-flex align-items-center">
+                <div class="follow-social">
+                    <a href="#"><img src="{{asset('accueil/img/icon-ins.png')}}" alt=""></a>
+                </div>
+                <div class="follow-count">
+                    <span>8,045</span>
+                    <p>Fans</p>
+                </div>
+            </div>
+            <div class="follow-us d-flex align-items-center">
+                <div class="follow-social">
+                    <a href="#"><img src="{{asset('accueil/img/icon-yo.png')}}" alt=""></a>
+                </div>
+                <div class="follow-count">
+                    <span>8,045</span>
+                    <p>Fans</p>
+                </div>
+            </div>
+          </div>
+          <div class="grid-default rt-news-grid-1 general" id="side-news-1">
+            <div id="side-news-12" class="row">
+              <div class="col-12 mb-25p">
+                <div class="rt-news-box-title-holder style_2">
+                  <h2 class="el-rt-news-box-title style_2">Recent News<span class="titleinner"></span></h2>
+                </div>
+              </div>
+              {% for recent in recentArticles %}
+              <div class="col-lg-6 col-md-6 col-sm-12 col-12" >
+                <div class="grid-item-1">
+                  <div class="news-grid-img">
+                    <a href="/article/{{recent.id}}" class="img-opacity-hover img-scale-animate"> 
+                      <img width="555" height="370" src="{{ asset('uploads/images/articles/' ~ recent.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="" loading="lazy"> </a>
+                  </div>
+                  <div class="post-meta-dark">
+                    <ul>
+                    </ul>
+                  </div>
+                    <h3 class="post-cat-title">
+                      <a href="/article/{{recent.id}}">
+                        {{recent.titre}}
+                      </a>
+                    </h3>
+                  </div>
+                </div>
+              {% endfor %}
+        </div>   
+      </div> 
+    </div>
+  </div>
+</section>
 
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
+<section class="news-grid-home">
+  <!-- Swiper -->
+  <section class="swiper mySwiper mb-5">
+    <div class="swiper-wrapper">
+      {% for slider in newsCuisines %}
+      <div class="swiper-slide img-scale-animate">
+        <div class="mask-content-xs py-4">
+          <div class="post-meta-light d-none d-sm-block">
+            <ul>
+              <li>
+                <span><i class="fa fa-user" aria-hidden="true">
+                </i></span>
+                <a href="/auteur/{{slider.auteur.id}}" title="Posts by admin" rel="author">{{ slider.auteur.nickname}}</a>
+              </li>
+              <li>
+                <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>Octobre 26, 2022
+              </li>
+            </ul>
+          </div>
+          <h3 class="title-medium-light"> 
+            <a href="/article/{{slider.id}}">
+              {{slider.thumbnail.titre}}                    
+            </a>
+          </h3>
+        </div>
+        <a class="img-overlay-70" href="/article/{{slider.id}}">
+          <img width="598" height="322" src="{{ asset('uploads/images/articles/' ~ slider.thumbnail.image)}}">
+          <h3 class="title-medium-light">
+            {{ slider.thumbnail.titre}} 
+          </h3>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
+</section>
+
+<section class="bg-blanc">
+  <div  class="container news-wrap">
+    <div class="row">
+      {% for tech in newsTech %}
+      {% if loop.first %}
+      <div class="col-12 col-md-4">
+        <div id="news-3" class="box-default rt-news-box-13 general">
+          <div class="mb-25p">
+            <div class="rt-news-box-title-holder style_2">
+              <h2 class="el-rt-news-box-title style_2">Tech<span class="titleinner"></span></h2>
+            </div>
+          </div>
+          <div class="img-scale-animate mb-30">
+            <div class="mask-content-sm">
+              <div class="post-meta-light">
+                <ul>
+                  <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                    {{tech.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                  </li>
+                </ul>
+              </div>
+              <h2 class="title-medium-light"> 
+                <a href="/article/{{tech.id}}">
+                  {{tech.titre}}
+                </a>
+              </h2>
+            </div>
+            <a class="img-overlay-70" href="/article/{{tech.id}}">
+              <img src="{{ asset('uploads/images/articles/' ~ tech.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ tech.alt}}" loading="lazy" width="555" height="370"> 
+            </a>
+          </div>
+          <div class="content-bottom item-shadow-gray">
+        {% endif %}
+        {% if not loop.first %}
+            <div class="media mb-30">
+              <div class="image-left"> 
+                <a class="img-opacity-hover" href="/article/{{tech.id}}"> 
+                  <img src="{{ asset('uploads/images/articles/' ~ tech.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ tech.alt}}" loading="lazy" width="152" height="136"> 
+                </a>
+              </div>
+              <div class="media-body">
+                <div class="post-meta-dark">
+                  <ul>
+                    <li>
+                      <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{tech.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                    </li>
+                  </ul>
+                </div>
+                <h3 class="title-medium-dark"> 
+                  <a href="/article/{{tech.id}}">
+                  {{tech.titre}}
+                  </a>
+                </h3>
+              </div>
+            </div>
+            {% endif %}
+            {% if loop.last %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+
+      {% for sante in newsSante %}
+      {% if loop.first %}
+      <div class="col-12 col-md-4">
+        <div id="news-4" class="box-default rt-news-box-13 general">
+          <div class="mb-25p">
+            <div class="rt-news-box-title-holder style_2">
+              <h2 class="el-rt-news-box-title style_2">Santé<span class="titleinner"></span></h2>
+            </div>
+          </div>
+          <div class="img-scale-animate mb-30">
+            <div class="mask-content-sm">
+              <div class="post-meta-light">
+                <ul>
+                  <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                    {{sante.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                  </li>
+                </ul>
+              </div>
+              <h2 class="title-medium-light"> 
+                <a href="/article/{{sante.id}}">
+                  {{sante.titre}}
+                </a>
+              </h2>
+            </div>
+            <a class="img-overlay-70" href="/article/{{sante.id}}">
+              <img src="{{ asset('uploads/images/articles/' ~ sante.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ sante.alt}}" loading="lazy" width="555" height="370"> 
+            </a>
+          </div>
+          <div class="content-bottom item-shadow-gray">
+          {% endif %}
+          {% if not loop.first %}
+            <div class="media mb-30">
+              <div class="image-left"> 
+                <a class="img-opacity-hover" href="/article/{{sante.id}}"> 
+                  <img src="{{ asset('uploads/images/articles/' ~ sante.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ sante.alt}}" loading="lazy" width="152" height="136"> 
+                </a>
+              </div>
+              <div class="media-body">
+                <div class="post-meta-dark">
+                  <ul>
+                    <li>
+                      <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{sante.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                    </li>
+                  </ul>
+                </div>
+                <h3 class="title-medium-dark"> 
+                  <a href="/article/{{sante.id}}">
+                  {{sante.titre}}
+                  </a>
+                </h3>
+              </div>
+            </div>
+            {% endif %}
+            {% if loop.last %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+      {% for jeux in newsJeux %}
+      {% if loop.first %}
+      <div class="col-12 col-md-4">
+        <div id="news-5" class="box-default rt-news-box-13 general">
+          <div class="mb-25p">
+            <div class="rt-news-box-title-holder style_2">
+              <h2 class="el-rt-news-box-title style_2">Jeux vidéo<span class="titleinner"></span></h2>
+            </div>
+          </div>
+          <div class="img-scale-animate mb-30">
+            <div class="mask-content-sm">
+              <div class="post-meta-light">
+                <ul>
+                  <li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                    {{jeux.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                  </li>
+                </ul>
+              </div>
+              <h2 class="title-medium-light"> 
+                <a href="/article/{{jeux.id}}">
+                  {{jeux.titre}}
+                </a>
+              </h2>
+            </div>
+            <a class="img-overlay-70" href="/article/{{jeux.id}}">
+              <img src="{{ asset('uploads/images/articles/' ~ jeux.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ jeux.alt}}" loading="lazy" width="555" height="370"> 
+            </a>
+          </div>
+          <div class="content-bottom item-shadow-gray">
+          {% endif %}
+          {% if not loop.first %}
+            <div class="media mb-30">
+              <div class="image-left"> 
+                <a class="img-opacity-hover" href="/article/{{jeux.id}}"> 
+                  <img src="{{ asset('uploads/images/articles/' ~ jeux.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{ jeux.alt}}" loading="lazy" width="152" height="136"> 
+                </a>
+              </div>
+              <div class="media-body">
+                <div class="post-meta-dark">
+                  <ul>
+                    <li>
+                      <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{jeux.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                    </li>
+                  </ul>
+                </div>
+                <h3 class="title-medium-dark"> 
+                  <a href="/article/{{jeux.id}}">
+                  {{jeux.titre}}
+                  </a>
+                </h3>
+              </div>
+            </div>
+            {% endif %}
+            {% if loop.last %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+
+      <div class="col-12 col-md-12 my-5">
+        <div class="row">
+          <div class="col-12 col-md-12">
+            <div class="section-tittle mb-30">
+                <h3>Weekly Top News</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-12 ">
+            <div class="weekly-news-area pt-50">
+                <div class="container">
+                  <div class="weekly-wrapper">
+                      <!-- section Tittle -->
+                      <div class="row">
+                          <div class="col-12">
+                              <div class="weekly-news-active dot-style d-flex dot-style">
+                                  {% for news in newsCuisines %}
+                                  <div class="weekly-single ">
+                                      <div class="weekly-img">
+                                          <a href="/article/{{news.id}}">
+                                              <img src="{{ asset('uploads/images/articles/' ~ news.thumbnail.image)}}" alt="{{ news.alt }}">
+                                          </a>
+                                      </div>
+                                      <div class="weekly-caption">
+                                          <span class="color1">{{news.sousCategorie.categorie.libelleCategorie}}</span>
+                                          <h4><a href="/article/{{news.id}}">{{news.thumbnail.titre}}</a></h4>
+                                      </div>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news-grid-home">
+  <div  class="container news-wrap">
+    <div class="row grid-default tab-space1 rt-news-grid-6">
+    {% for article in last6ArticleCateg %}
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="grid-content-middle overlay-dark-level-2 img-scale-animate text-center mb-2">
+          <div class="grid-content-middle overlay-dark-level-2 img-scale-animate text-center mb-2"> 
+            <img src="{{ asset('uploads/images/articles/' ~ article.thumbnail.image)}}" class="img-fluid mb-10 width-100 wp-post-image" alt="{{article.alt}}" loading="lazy" width="555" height="370">
+            <div class="content p-30-r"> 
+              <a href="/categorie/{{article.sousCategorie.categorie.id}}">
+                <span class="el-rt-cat style_2" 
+                {% if loop.first %} style="background:#e53935"{% endif %}
+                {% if loop.index0 == 1 %}style="background:#ffab00"{% endif %}
+                {% if loop.index0 == 2 %}style="background:#605ca8"{% endif %}
+                {% if loop.index0 == 3 %}style="background:#43a047"{% endif %}
+                {% if loop.index0 == 4 %}style="background:#e53935"{% endif %}
+                {% if loop.index0 == 5 %}style="background:#0089ff"{% endif %}
+                >{{article.sousCategorie.categorie.libelleCategorie}}
+                <span class="titleinner" 
+                {% if loop.first %} style="border-top: 8px solid #e53935;"{% endif %}
+                {% if loop.index0 == 1 %}style="border-top: 8px solid #ffab00;"{% endif %}
+                {% if loop.index0 == 2 %}style="border-top: 8px solid #605ca8;"{% endif %}
+                {% if loop.index0 == 3 %}style="border-top: 8px solid #43a047;"{% endif %}
+                {% if loop.index0 == 4 %}style="border-top: 8px solid #e53935;"{% endif %}
+                {% if loop.index0 == 5 %}style="border-top: 8px solid #0089ff;"{% endif %}></span></span>
+              </a>
+              <h3 class="title-regular-light"> 
+                <a href="#">
+                {{article.thumbnail.titre}}
+                </a>
+              </h3>
+              <div class="post-meta-light">
+                <ul>
+                  <li>
+                    <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <a href="/auteur/{{article.auteur.id}}" title="Posts by admin" rel="author">{{article.auteur.nickname}}</a>
+                  </li>
+                  <li>
+                    <span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{article.createdAt|format_datetime(pattern="MMMM d',' Y", locale='fr')|capitalize}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    freeMode: true,
+    breakpoints: {
+      "@0.00": {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      "@0.75": {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      "@1.00": {
         slidesPerView: 3,
-        spaceBetween: 30,
-        freeMode: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    </script>
+        spaceBetween: 10,
+      },
+      "@1.50": {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+    },
+  });
+
+
+
+
+
+
+
+
+// WEEKLY TOP NEWS
+$(".weekly-news-active").slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true,
+});
+
+/* 2. slick Nav */
+// mobile_menu
+var menu = $("ul#navigation");
+if (menu.length) {
+  menu.slicknav({
+    prependTo: ".mobile_menu",
+    closedSymbol: "+",
+    openedSymbol: "-",
+  });
+}
+
+// Weekly-2 Acticve
+$(".weekly-news-active").slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  arrows: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  initialSlide: 3,
+  loop: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ],
+});
+
+// Weekly-2 Acticve
+$(".weekly2-news-active").slick({
+  dots: true,
+  infinite: true,
+  speed: 600,
+  arrows: false,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  initialSlide: 3,
+  loop: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: false,
+      },
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+      },
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ],
+});
+
+</script>
+
 
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    {{ encore_entry_script_tags('filter-news') }}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 {% endblock %}
